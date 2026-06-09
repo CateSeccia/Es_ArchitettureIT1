@@ -33,13 +33,13 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
 >
 </head>
 <body>
     
+<h1>Inserisci nuovo IP</h1>
+
 <form action="salva_ip.php" method="post">
 	<input type="text" id="ip_address" name="ip_address" placeholder="Inserisci il tuo IP">
 	<input type="submit">
