@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //echo "IP salvato con successo!";
             // Puoi anche reindirizzare l'utente dopo il successo:
             header("Location: index.php");
+            exit();
         } else {
             echo "Si è verificato un errore durante il salvataggio.";
         }
