@@ -1,4 +1,5 @@
 <?php
+session_start(); // 0. ATTIVA LE SESSIONI
 // 1. Dati di configurazione del database
 $host = 'localhost';
 $db   = 'gioco';
@@ -18,7 +19,7 @@ try {
     
     // 2. Query per recuperare tutti i dati dalla tabella
     // Ordiniamo per ID decrescente così l'ultimo IP inserito compare in alto
-    $sql = "SELECT id, ip FROM utenti ORDER BY id DESC";
+    $sql = "SELECT id, ip FROM utenti ORDER BY id";
     $stmt = $pdo->query($sql);
     $registri = $stmt->fetchAll();
 
@@ -39,6 +40,25 @@ try {
 <body>
     
 <h1>Inserisci nuovo IP</h1>
+
+<!-- Messaggi di successo o errore -->
+ <?php if (isset($_SESSION['messaggio_errore'])): ?>
+        <div class="allerta-errore">
+            <?php 
+                echo $_SESSION['messaggio_errore']; 
+                unset($_SESSION['messaggio_errore']); // Cancella il messaggio così scompare al prossimo ricaricamento
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['messaggio_successo'])): ?>
+        <div class="allerta-successo">
+            <?php 
+                echo $_SESSION['messaggio_successo']; 
+                unset($_SESSION['messaggio_successo']); // Cancella il messaggio
+            ?>
+        </div>
+    <?php endif; ?>
 
 <form action="salva_ip.php" method="post">
 	<input type="text" id="ip_address" name="ip_address" placeholder="Inserisci il tuo IP" pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$"
