@@ -41,7 +41,8 @@ try {
 <h1>Inserisci nuovo IP</h1>
 
 <form action="salva_ip.php" method="post">
-	<input type="text" id="ip_address" name="ip_address" placeholder="Inserisci il tuo IP">
+	<input type="text" id="ip_address" name="ip_address" placeholder="Inserisci il tuo IP" pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$"
+    title="Inserisci un indirizzo IPv4 valido (es. 192.168.1.1)" required>
 	<input type="submit">
 </form>
 
